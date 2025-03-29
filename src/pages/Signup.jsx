@@ -9,7 +9,7 @@ const Signup = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
-  const API_URL = "https://auth-ag5o.onrender.com"
+  const API_URL = "https://auth-ag5o.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
