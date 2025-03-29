@@ -27,7 +27,7 @@ const Home = () => {
     {
       name: "Narendra Modi",
       role: "COO",
-      imageUrl: "http://image.cnbcfm.com/api/v1/image/105620027-1544510793193gettyimages-948028916.jpeg?v=1599100867&w=800&h=600&ffmt=webp",
+      imageUrl: "https://image.cnbcfm.com/api/v1/image/105620027-1544510793193gettyimages-948028916.jpeg?v=1599100867&w=800&h=600&ffmt=webp",
     },
     
   ];

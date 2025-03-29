@@ -7,14 +7,14 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const API_URL = "https://auth-ag5o.onrender.com"
+  const API_URL = "https://auth-ag5o.onrender.com/api/auth"
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      const response = await fetch(`${API_URL}/api/auth/login`, {
+      const response = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
