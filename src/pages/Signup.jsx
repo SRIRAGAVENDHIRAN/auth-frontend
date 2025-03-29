@@ -8,6 +8,7 @@ const Signup = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch("https://auth-wd04.onrender.com/api/auth/signup", {
+      const res = await fetch('/api/auth/signup', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,14 +29,10 @@ const Signup = () => {
         body: JSON.stringify({ name, email, password }),
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setSuccess("Account created successfully! Redirecting...");
-        setTimeout(() => navigate("/"), 2000);
-      } else {
-        setError(data.message || "Signup failed. Please try again.");
-      }
+      const data = await res.json();
+				if(!res.ok) throw new Error(data.error || "Failed to create account");
+				console.log(data);
+				return data;
     } catch (err) {
       setError("Something went wrong. Please try again.");
     }
