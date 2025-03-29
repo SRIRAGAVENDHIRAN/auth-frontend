@@ -7,7 +7,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const API_URL = "https://auth-ag5o.onrender.com/api/auth"
+  const API_URL = "hhttps://auth-r0yw.onrender.com/api/auth"
 
   const handleSubmit = async (e) => {
     e.preventDefault();

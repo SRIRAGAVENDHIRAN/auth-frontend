@@ -9,7 +9,7 @@ const Signup = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL || "https://auth-ag5o.onrender.com/api/auth";
+  const API_URL = import.meta.env.VITE_API_URL || "https://auth-r0yw.onrender.com/api/auth";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
