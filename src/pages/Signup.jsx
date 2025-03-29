@@ -9,6 +9,7 @@ const Signup = () => {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
   
+  const API_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ const Signup = () => {
     }
 
     try {
-      const res = await fetch('/api/auth/signup', {
+      const response = await fetch(`${API_URL}/api/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,10 +30,14 @@ const Signup = () => {
         body: JSON.stringify({ name, email, password }),
       });
 
-      const data = await res.json();
-				if(!res.ok) throw new Error(data.error || "Failed to create account");
-				console.log(data);
-				return data;
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess("Account created successfully! Redirecting...");
+        setTimeout(() => navigate("/"), 2000);
+      } else {
+        setError(data.message || "Signup failed. Please try again.");
+      }
     } catch (err) {
       setError("Something went wrong. Please try again.");
     }
